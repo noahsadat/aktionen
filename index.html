@@ -53,21 +53,80 @@
             <div class="col-12">
                 <label class="form-label h5">Ist die Aktion ausgeschlossen von Kategorien oder Marken?</label>
                 <div class="btn-group" role="group" aria-label="Exclusion options">
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('nein')">Nein</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Elektrowerkzeuge')">Akku- und Elektrowerkzeuge</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Schweißgeräte')">Schweißgeräte</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Schweißrauchabsauganlagen')">Schweißrauchabsauganlagen</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Beleuchtung')">Beleuchtung</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Plasma-Anlagen')">Plasma-Anlagen</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Spotter')">Spotter</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Induktionsgeräte')">Induktionsgeräte</button>
-                </div><br>
+                    
+                    <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Akku- und Elektrowerkzeuge"
+        data-fr="Outils électriques"
+        data-nl="Accu- en elektrisch gereedschap">Akku- und Elektrowerkzeuge</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Schweißgeräte"
+        data-fr="postes de soudage"
+        data-nl="lasapparatuur">Schweißgeräte</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Schweißrauchabsauganlagen"
+        data-fr="installations d’aspiration des fumées de soudage"
+        data-nl="lasrookafzuigsystemen">Schweißrauchabsauganlagen</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Beleuchtung"
+        data-fr="lampes et lumières"
+        data-nl="verlichting">Beleuchtung</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Plasma-Anlagen"
+        data-fr="installations au plasma"
+        data-nl="plasma-installaties">Plasma-Anlagen</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Spotter"
+        data-fr="spotters"
+        data-nl="spottersp">Spotter</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Induktionsgeräte"
+        data-fr="induction"
+        data-nl="inductie">Induktionsgeräte</button>
+
+                  </div><br>
                 <div class="btn-group mt-3" role="group" aria-label="Exclusion options">
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Kerbe')">Kerbel</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Milwaukee')">Milwaukee</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('DeWalt')">DeWALT</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('Gambit')">Gambit</button>
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" onclick="updateExclusions('tprosafe')">tprosafe</button>
+                    <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Milwaukee"
+        data-fr="Milwaukee"
+        data-nl="Milwaukee">Milwaukee</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="DeWALT"
+        data-fr="DeWALT"
+        data-nl="DeWALT">DeWALT</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Kerbel"
+        data-fr="Kerbel"
+        data-nl="Kerbel">Kerbel</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="Gambit"
+        data-fr="Gambit"
+        data-nl="Gambit">Gambit</button>
+
+        <button type="button" class="btn btn-outline-secondary exclusion-option" 
+        onclick="updateExclusions(this)"
+        data-de="tprosafe"
+        data-fr="tprosafe"
+        data-nl="tprosafe">tprosafe</button>
                 </div>
             </div>
             <div class="col-12">
@@ -98,24 +157,25 @@
     let exclusions = [];
     let isCombinable = true; // Standardmäßig ist die Aktion kombinierbar
 
-    function updateExclusions(selected) {
-        // Verwaltet die Liste der Ausschlüsse basierend auf Benutzerinteraktion
-        const index = exclusions.indexOf(selected);
-        if (selected === 'nein') {
-            exclusions = (index === -1) ? ['nein'] : [];
+    function updateExclusions(buttonElement) {
+    let selected = buttonElement.getAttribute('data-de');
+    let selectedFr = buttonElement.getAttribute('data-fr');
+    let selectedNl = buttonElement.getAttribute('data-nl');
+
+    if (selected === 'Nein') {
+        exclusions = [{de: 'Nein', fr: 'Non', nl: 'Nee'}];
+    } else {
+        const index = exclusions.findIndex(ex => ex.de === selected);
+        if (index === -1) {
+            exclusions.push({de: selected, fr: selectedFr, nl: selectedNl});
         } else {
-            if (exclusions.includes('nein')) {
-                exclusions = [];
-            }
-            if (index === -1) {
-                exclusions.push(selected);
-            } else {
-                exclusions.splice(index, 1);
-            }
+            exclusions.splice(index, 1);
         }
-        updateButtons();
-        processTitles();
     }
+    updateButtons();
+    processTitles();
+}
+
 
     function updateButtons() {
         // Aktualisiert die Zustände der Buttons basierend auf aktuellen Ausschlüssen
@@ -135,43 +195,51 @@
     }
 
     function processTitles() {
-        // Generiert die Ausgabetexte basierend auf den aktuellen Daten und Einstellungen
-        const deTitle = document.getElementById('deTitle').value;
-        const frTitle = document.getElementById('frTitle').value;
-        const nlTitle = document.getElementById('nlTitle').value;
-        const startDate = document.getElementById('startDate').value;
-        const endDate = document.getElementById('endDate').value;
+    const deTitle = document.getElementById('deTitle').value;
+    const frTitle = document.getElementById('frTitle').value;
+    const nlTitle = document.getElementById('nlTitle').value;
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
 
-        let exclusionTextDe = exclusions.length === 0 || exclusions[0] === 'nein' ? "Nur solange der Vorrat reicht. Zzgl. gesetzlicher MwSt. Dieser Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise." : 
-                              `Nur solange der Vorrat reicht. Zzgl. gesetzlicher MwSt. Dieser Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise. Ausgeschlossen sind Artikel aus der Kategorie/Marke: ${exclusions.join(', ')}.`;
-        let exclusionTextFr = exclusions.length === 0 || exclusions[0] === 'nein' ? "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus." : 
-                              `Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus. Sont exclus les articles de la catégorie/marque: ${exclusions.join(', ')}.`;
-        let exclusionTextNl = exclusions.length === 0 || exclusions[0] === 'nein' ? "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten." : 
-                              `Alleen zolang de voorraad strekt. Prijzen exclusief btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten. Uitgesloten zijn artikelen uit de categorie/merk: ${exclusions.join(', ')}.`;
+    // Grundlegenden Text für jede Sprache vorbereiten
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher MwSt. Dieser Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
 
-        let combinabilityTextDe = !isCombinable ? " Dieser Aktion ist nicht kombinierbar mit anderen Aktionen." : "";
-        let combinabilityTextFr = !isCombinable ? " Cette promotion n'est pas cumulable avec d'autres promotions." : "";
-        let combinabilityTextNl = !isCombinable ? " Deze actie is niet combineerbaar met andere acties." : "";
+    if (exclusions.length > 0 && exclusions[0].de !== 'Nein') {
+        let categoryListDe = exclusions.map(ex => ex.de).join(', ');
+        let categoryListFr = exclusions.map(ex => ex.fr).join(', ');
+        let categoryListNl = exclusions.map(ex => ex.nl).join(', ');
 
-        document.getElementById('result').innerHTML = `<div class="alert alert-success">
-            <strong>Deutsch:</strong><br> Aktionstitel: ${deTitle}<br>
-            Aktionszeitraum: Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}<br>
-            Aktionsregeln: ${exclusionTextDe}${combinabilityTextDe}
-        </div>
-        <div class="alert alert-success">
-            <strong>Französisch:</strong><br> Aktionstitel: ${frTitle}<br>
-            Aktionszeitraum: Promotion valable du ${startDate} au ${endDate}<br>
-            Aktionsregeln: ${exclusionTextFr}${combinabilityTextFr}
-        </div>
-        <div class="alert alert-success">
-            <strong>Niederländisch:</strong><br> Aktionstitel: ${nlTitle}<br>
-            Aktionszeitraum: Actie geldig van ${startDate} tot en mit ${endDate}<br>
-            Aktionsregeln: ${exclusionTextNl}${combinabilityTextNl}
-        </div>
-        <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Kopieren</button>
-        <button type="button" class="btn btn-secondary" onclick="resetForm()">Zurücksetzen</button>
-`;
+        exclusionTextDe += ` Ausgeschlossen sind Artikel aus der Kategorie/Marke: ${categoryListDe}.`;
+        exclusionTextFr += ` Sont exclus les articles de la catégorie/marque: ${categoryListFr}.`;
+        exclusionTextNl += ` Uitgesloten zijn artikelen uit/van de volgende categorieën/merken: ${categoryListNl}.`;
     }
+
+    let combinabilityTextDe = !isCombinable ? " Dieser Aktion ist nicht kombinierbar mit anderen Aktionen." : "";
+    let combinabilityTextFr = !isCombinable ? " Cette promotion n'est pas cumulable avec d'autres promotions." : "";
+    let combinabilityTextNl = !isCombinable ? " Deze actie is niet combineerbaar met andere acties." : "";
+
+    document.getElementById('result').innerHTML = `<div class="alert alert-success">
+        <strong>Deutsch:</strong><br> Aktionstitel: ${deTitle}<br>
+        Aktionszeitraum: Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}<br>
+        Aktionsregeln: ${exclusionTextDe}${combinabilityTextDe}
+    </div>
+    <div class="alert alert-success">
+        <strong>Französisch:</strong><br> Aktionstitel: ${frTitle}<br>
+        Aktionszeitraum: Promotion valable du ${startDate} au ${endDate}<br>
+        Aktionsregeln: ${exclusionTextFr}${combinabilityTextFr}
+    </div>
+    <div class="alert alert-success">
+        <strong>Niederländisch:</strong><br> Aktionstitel: ${nlTitle}<br>
+        Aktionszeitraum: Actie geldig van ${startDate} tot en met ${endDate}<br>
+        Aktionsregeln: ${exclusionTextNl}${combinabilityTextNl}
+    </div>
+    <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Kopieren</button>
+    <button type="button" class="btn btn-secondary" onclick="resetForm()">Zurücksetzen</button>
+    `;
+}
+
     
     function resetForm() {
     document.getElementById('titleForm').reset();
