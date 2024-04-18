@@ -201,6 +201,47 @@
     processTitles();
 }
 
+function translateWithDeepL(text, targetLang, apiKey) {
+    const url = "https://api-free.deepl.com/v2/translate";
+
+    const params = new URLSearchParams();
+    params.append('auth_key', apiKey);
+    params.append('text', text);
+    params.append('target_lang', targetLang);
+
+    return fetch(url, {
+        method: 'POST',
+        body: params
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.translations && data.translations.length > 0) {
+            return data.translations[0].text;
+        } else {
+            throw new Error('Translation failed or no translation returned.');
+        }
+    })
+    .catch(error => {
+        console.error('Error translating text:', error);
+        return ''; // Return empty string or handle error appropriately
+    });
+}
+
+document.getElementById('deDescription').addEventListener('change', function() {
+    const deText = this.value;
+    const apiKey = 'cde1269e-de07-4498-9bc7-c901ef5f9ea7:fx';  // Replace with your actual DeepL API key
+
+    // Translate to French
+    translateWithDeepL(deText, 'FR', apiKey).then(translatedText => {
+        document.getElementById('frDescription').value = translatedText;
+    });
+
+    // Translate to Dutch
+    translateWithDeepL(deText, 'NL', apiKey).then(translatedText => {
+        document.getElementById('nlDescription').value = translatedText;
+    });
+});
+
 
     function updateButtons() {
         // Aktualisiert die Zustände der Buttons basierend auf aktuellen Ausschlüssen
