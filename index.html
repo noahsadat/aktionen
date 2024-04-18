@@ -32,6 +32,29 @@
                     Bitte geben Sie den Titel ein.
                 </div>
             </div>
+
+            <div class="col-md-4">
+                <label for="deDescription" class="form-label">Aktionsbeschreibung (Deutsch):</label>
+                <input type="text" class="form-control" id="deDescription" name="deDescription" required>
+                <div class="invalid-feedback">
+                    Bitte geben Sie den Titel ein.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="frDescription" class="form-label">Aktionsbeschreibung (Französisch):</label>
+                <input type="text" class="form-control" id="frDescription" name="frDescription" required>
+                <div class="invalid-feedback">
+                    Bitte geben Sie den Titel ein.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="nlDescription" class="form-label">Aktionsbeschreibung (Niederländisch):</label>
+                <input type="text" class="form-control" id="nlDescription" name="nlDescription" required>
+                <div class="invalid-feedback">
+                    Bitte geben Sie den Titel ein.
+                </div>
+            </div>
+
             <div class="col-12">
                 <label class="form-label h5">Aktionsszeitraum</label>
             </div>
@@ -314,6 +337,9 @@ function downloadXML() {
     const deTitle = document.getElementById('deTitle').value;
     const frTitle = document.getElementById('frTitle').value;
     const nlTitle = document.getElementById('nlTitle').value;
+    const deDescription = document.getElementById('deDescription').value;
+    const frDescription = document.getElementById('frDescription').value;
+    const nlDescription = document.getElementById('nlDescription').value;
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
     const formattedStartDate = formatDate(startDate);
@@ -396,11 +422,11 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Langtitel AT&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Langtitel DE&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Langtitel BE(FR)&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Langtitel BE(NL)&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Langtitel NL&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedStartDate.format2}&lt;/p&gt;</custom-attribute>
