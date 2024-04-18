@@ -227,6 +227,22 @@ function translateWithDeepL(text, targetLang, apiKey) {
     });
 }
 
+document.getElementById('deTitle').addEventListener('change', function() {
+    const titleText = this.value;
+    const apiKey = 'cde1269e-de07-4498-9bc7-c901ef5f9ea7:fx';  // Replace with your actual DeepL API key
+
+    // Translate title to French
+    translateWithDeepL(titleText, 'FR', apiKey).then(translatedText => {
+        document.getElementById('frTitle').value = translatedText; // Make sure this matches the ID in your HTML
+    });
+
+    // Translate title to Dutch
+    translateWithDeepL(titleText, 'NL', apiKey).then(translatedText => {
+        document.getElementById('nlTitle').value = translatedText; // Make sure this matches the ID in your HTML
+    });
+});
+
+
 document.getElementById('deDescription').addEventListener('change', function() {
     const deText = this.value;
     const apiKey = 'cde1269e-de07-4498-9bc7-c901ef5f9ea7:fx';  // Replace with your actual DeepL API key
