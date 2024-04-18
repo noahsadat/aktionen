@@ -291,6 +291,22 @@ function generatePromotionId() {
     return result;
 }
 
+function formatDate(dateString) {
+    // This function assumes dateString is in "dd.mm.yyyy" format
+    const parts = dateString.split('.');
+    const day = parts[0];
+    const month = parts[1];
+    const year = parts[2];
+
+    // Creating "dd-mm-yyyy" format
+    const format1 = `${day}-${month}-${year}`;
+
+    // Creating "yyyy-mm-dd" format
+    const format2 = `${year}-${month}-${day}`;
+
+    return { format1, format2 };
+}
+
 let fullActionRulesTextDe, fullActionRulesTextFr, fullActionRulesTextNl;
 
 function downloadXML() {
@@ -300,6 +316,8 @@ function downloadXML() {
     const nlTitle = document.getElementById('nlTitle').value;
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
+    const formattedStartDate = formatDate(startDate);
+    const formattedEndDate = formatDate(endDate);
 
     // Deutsch
     let combinabilityTextDe = isCombinable ? "" : "Diese Aktion ist nicht kombinierbar.";
@@ -329,8 +347,8 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
 <applications>rest</applications>
 <effect-discount-level>false</effect-discount-level>
 <rank>0</rank>
-<start-date>2023-12-31T23:50:00+00:00</start-date>
-<end-date>2024-12-30T22:50:00+00:00</end-date>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
 <type-code>0</type-code>
 <creator-id>00001106@IWETEC</creator-id>
 <currency>EUR</currency>
@@ -385,9 +403,9 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Langtitel NL&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${startDate} au ${endDate}&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${startDate} tot en met ${endDate}&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${startDate} tot en met ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedStartDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedStartDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedStartDate.format1}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
