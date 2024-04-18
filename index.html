@@ -291,8 +291,29 @@ function generatePromotionId() {
     return result;
 }
 
+let fullActionRulesTextDe, fullActionRulesTextFr, fullActionRulesTextNl;
+
 function downloadXML() {
-    const promotionId = generatePromotionId(); // Call the function to get a unique ID
+    const promotionId = generatePromotionId(); // Generate a unique promotion ID
+    const deTitle = document.getElementById('deTitle').value;
+    const frTitle = document.getElementById('frTitle').value;
+    const nlTitle = document.getElementById('nlTitle').value;
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+
+    // Deutsch
+    let combinabilityTextDe = isCombinable ? "" : "Diese Aktion ist nicht kombinierbar.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    
+    // Französisch
+    let combinabilityTextFr = isCombinable ? "" : "Cette promotion n'est pas combinable avec d'autres promotions.";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Cette promotion s'applique uniquement aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
+
+    // Niederländisch
+    let combinabilityTextNl = isCombinable ? "" : "Deze actie is niet combineerbaar met andere acties.";
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+
+
     const xmlContent = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <enfinity
 xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
@@ -352,26 +373,26 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
 <custom-attributes>
 <custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
 <custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
-<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Rechtliche Hinweise AT&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Rechtliche Hinweise DE&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Rechtliche Hinweise BE(FR)&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Rechtliche Hinweise BE(NL)&lt;/p&gt;</custom-attribute>
-<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Rechtliche Hinweise NL&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Langtitel AT&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Langtitel DE&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Langtitel BE(FR)&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Langtitel BE(NL)&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Langtitel NL&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Regelbeschreibung AT&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Regelbeschreibung DE&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Regelbeschreibung BE(FR)&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Regelbeschreibung BE(NL)&lt;/p&gt;</custom-attribute>
-<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Regelbeschreibung NL&lt;/p&gt;</custom-attribute>
-<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;Titel AT&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
-<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;Titel DE&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
-<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;Titel BE(FR)&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
-<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;Titel BE(NL)&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
-<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;Titel NL&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${startDate} au ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${startDate} tot en met ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${startDate} tot en met ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
