@@ -1,286 +1,88 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-    <title>Aktionstitel Generator</title>
-</head>
-<body>
-    <div class="container my-5 shadow-lg p-3 mb-5 bg-body rounded">
-        <h5>Wie lautet Ihre Aktionstitel?</h5>
-        <form id="titleForm" class="row g-3 needs-validation" novalidate>
-            <div class="col-md-4">
-                <label for="deTitle" class="form-label">Aktionstitel (Deutsch):</label>
-                <input type="text" class="form-control" id="deTitle" name="deTitle" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie den Titel ein.
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label for="frTitle" class="form-label">Aktionstitel (Französisch):</label>
-                <input type="text" class="form-control" id="frTitle" name="frTitle" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie den Titel ein.
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label for="nlTitle" class="form-label">Aktionstitel (Niederländisch):</label>
-                <input type="text" class="form-control" id="nlTitle" name="nlTitle" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie den Titel ein.
-                </div>
-            </div>
-            <div class="col-12">
-                <label class="form-label h5">Aktionsszeitraum</label>
-            </div>
-            <div class="col-md-3">
-                <label for="startDate" class="form-label">von:</label>
-                <input type="text" class="form-control datepicker" id="startDate" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie ein Startdatum ein.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="endDate" class="form-label">bis:</label>
-                <input type="text" class="form-control datepicker" id="endDate" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie ein Enddatum ein.
-                </div>
-            </div>
-
-            <div class="col-12">
-                <label class="form-label h5">Ist die Aktion kombinierbar?</label><br>
-                <button type="button" class="btn btn-outline-secondary" onclick="updateCombinability(false)">Nicht kombinierbar</button>
-                <button type="button" class="btn btn-outline-secondary" onclick="updateCombinability(true)">Kombinierbar</button>
-            </div>
-    
-            <div class="col-12">
-                <label class="form-label h5">Ist die Aktion ausgeschlossen von Kategorien oder Marken?</label>
-                <div class="btn-group" role="group" aria-label="Exclusion options">
-                    
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Akku- und Elektrowerkzeuge"
-        data-fr="Outils électriques"
-        data-nl="Accu- en elektrisch gereedschap">Akku- und Elektrowerkzeuge</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Schweißgeräte"
-        data-fr="postes de soudage"
-        data-nl="lasapparatuur">Schweißgeräte</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Schweißrauchabsauganlagen"
-        data-fr="installations d’aspiration des fumées de soudage"
-        data-nl="lasrookafzuigsystemen">Schweißrauchabsauganlagen</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Beleuchtung"
-        data-fr="lampes et lumières"
-        data-nl="verlichting">Beleuchtung</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Plasma-Anlagen"
-        data-fr="installations au plasma"
-        data-nl="plasma-installaties">Plasma-Anlagen</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Spotter"
-        data-fr="spotters"
-        data-nl="spottersp">Spotter</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Induktionsgeräte"
-        data-fr="induction"
-        data-nl="inductie">Induktionsgeräte</button>
-
-                  </div><br>
-                <div class="btn-group mt-3" role="group" aria-label="Exclusion options">
-                    <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Milwaukee"
-        data-fr="Milwaukee"
-        data-nl="Milwaukee">Milwaukee</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="DeWALT"
-        data-fr="DeWALT"
-        data-nl="DeWALT">DeWALT</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Kerbel"
-        data-fr="Kerbel"
-        data-nl="Kerbel">Kerbel</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="Gambit"
-        data-fr="Gambit"
-        data-nl="Gambit">Gambit</button>
-
-        <button type="button" class="btn btn-outline-secondary exclusion-option" 
-        onclick="updateExclusions(this)"
-        data-de="tprosafe"
-        data-fr="tprosafe"
-        data-nl="tprosafe">tprosafe</button>
-                </div>
-            </div>
-            
-        </form>
-        <div id="result" class="mt-3"></div>
-    </div>
-    
-
-
-
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script>
-    $(document).ready(function() {
-        // Initialisiert das Datepicker-Widget für die Datumsfelder
-        $('.datepicker').datepicker({
-            format: 'dd.mm.yyyy',
-            autoclose: true
-        });
-    });
-
-    let exclusions = [];
-    let isCombinable = true; // Standardmäßig ist die Aktion kombinierbar
-
-    function updateExclusions(buttonElement) {
-    let selected = buttonElement.getAttribute('data-de');
-    let selectedFr = buttonElement.getAttribute('data-fr');
-    let selectedNl = buttonElement.getAttribute('data-nl');
-
-    if (selected === 'Nein') {
-        exclusions = [{de: 'Nein', fr: 'Non', nl: 'Nee'}];
-    } else {
-        const index = exclusions.findIndex(ex => ex.de === selected);
-        if (index === -1) {
-            exclusions.push({de: selected, fr: selectedFr, nl: selectedNl});
-        } else {
-            exclusions.splice(index, 1);
-        }
-    }
-    updateButtons();
-    processTitles();
-}
-
-
-    function updateButtons() {
-        // Aktualisiert die Zustände der Buttons basierend auf aktuellen Ausschlüssen
-        document.querySelectorAll('.exclusion-option').forEach(button => {
-            if (exclusions.length === 1 && exclusions[0] === 'nein') {
-                button.disabled = button.textContent !== 'Nein';
-            } else {
-                button.disabled = false;
-            }
-        });
-    }
-
-    function updateCombinability(combinable) {
-        // Aktualisiert die Kombinierbarkeit der Aktion
-        isCombinable = combinable;
-        processTitles();
-    }
-
-    function processTitles() {
-    const deTitle = document.getElementById('deTitle').value;
-    const frTitle = document.getElementById('frTitle').value;
-    const nlTitle = document.getElementById('nlTitle').value;
-    const startDate = document.getElementById('startDate').value;
-    const endDate = document.getElementById('endDate').value;
-
-    // Grundlegenden Text für jede Sprache vorbereiten
-    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
-    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
-    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
-
-    
-
-    let combinabilityTextDe = !isCombinable ? " Diese Aktion ist nicht kombinierbar mit anderen Aktionen. " : "";
-    let combinabilityTextFr = !isCombinable ? " Cette promotion n'est pas cumulable avec d'autres promotions. " : "";
-    let combinabilityTextNl = !isCombinable ? " Deze actie is niet combineerbaar met andere acties. " : "";
-
-    if (exclusions.length > 0 && exclusions[0].de !== 'Nein') {
-        let categoryListDe = exclusions.map(ex => ex.de).join(', ');
-        let categoryListFr = exclusions.map(ex => ex.fr).join(', ');
-        let categoryListNl = exclusions.map(ex => ex.nl).join(', ');
-
-        exclusionTextDe += ` <br><br>Ausgeschlossen sind Artikel aus der Kategorie/Marke: ${categoryListDe}.`;
-        exclusionTextFr += ` <br><br>Sont exclus les articles de la catégorie/marque: ${categoryListFr}.`;
-        exclusionTextNl += ` <br><br>Uitgesloten zijn artikelen uit/van de volgende categorieën/merken: ${categoryListNl}.`;
-    }
-
-    document.getElementById('result').innerHTML = `<div class="alert alert-success">
-        <strong>Deutsch:</strong><br> Aktionstitel: ${deTitle}<br>
-        Aktionszeitraum: Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}<br>
-        Aktionsregeln: ${combinabilityTextDe}${exclusionTextDe}
-    </div>
-    <div class="alert alert-success">
-        <strong>Französisch:</strong><br> Aktionstitel: ${frTitle}<br>
-        Aktionszeitraum: Promotion valable du ${startDate} au ${endDate}<br>
-        Aktionsregeln: ${combinabilityTextFr}${exclusionTextFr}
-    </div>
-    <div class="alert alert-success">
-        <strong>Niederländisch:</strong><br> Aktionstitel: ${nlTitle}<br>
-        Aktionszeitraum: Actie geldig van ${startDate} tot en met ${endDate}<br>
-        Aktionsregeln: ${combinabilityTextNl}${exclusionTextNl}
-    </div>
-    <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Kopieren</button>
-    <button type="button" class="btn btn-secondary" onclick="resetForm()">Zurücksetzen</button>
-    `;
-}
-
-    
-    function resetForm() {
-    document.getElementById('titleForm').reset();
-    exclusions = [];
-    document.querySelectorAll('.exclusion-option').forEach(button => {
-        button.disabled = false; // Re-enable all buttons
-    });
-    document.getElementById('result').innerHTML = '';
-}
-function copyToClipboard() {
-    const resultElement = document.getElementById('result');
-    const textToCopy = Array.from(resultElement.querySelectorAll('.alert')).map(alert => alert.innerText).join('\n\n');
-
-    // Use a temporary textarea to facilitate copying
-    const textarea = document.createElement('textarea');
-    textarea.textContent = textToCopy;
-    textarea.style.position = 'fixed';  // Prevents scrolling to bottom
-    document.body.appendChild(textarea);
-    textarea.select();
-
-    try {
-        document.execCommand('copy');
-        alert('Text kopiert!');
-    } catch (err) {
-        console.error('Fehler beim Kopieren des Textes: ', err);
-    }
-
-    document.body.removeChild(textarea);
-}
-
-
-</script>
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-</body>
-</html>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="esSsFgMEWFwAAAGOFY8UZ_Bm">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>2023-12-31T23:50:00+00:00</start-date>
+<end-date>2024-12-30T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Rechtliche Hinweise AT&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Rechtliche Hinweise DE&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Rechtliche Hinweise BE(FR)&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Rechtliche Hinweise BE(NL)&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Rechtliche Hinweise NL&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Langtitel AT&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Langtitel DE&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Langtitel BE(FR)&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Langtitel BE(NL)&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Langtitel NL&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Regelbeschreibung AT&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Regelbeschreibung DE&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Regelbeschreibung BE(FR)&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Regelbeschreibung BE(NL)&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Regelbeschreibung NL&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;Titel AT&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;Titel DE&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;Titel BE(FR)&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;Titel BE(NL)&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;Titel NL&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">Titel</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>
