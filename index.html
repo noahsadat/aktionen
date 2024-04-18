@@ -49,6 +49,12 @@
                     Bitte geben Sie ein Enddatum ein.
                 </div>
             </div>
+
+            <div class="col-12">
+                <label class="form-label h5">Ist die Aktion kombinierbar?</label><br>
+                <button type="button" class="btn btn-outline-secondary" onclick="updateCombinability(false)">Nicht kombinierbar</button>
+                <button type="button" class="btn btn-outline-secondary" onclick="updateCombinability(true)">Kombinierbar</button>
+            </div>
     
             <div class="col-12">
                 <label class="form-label h5">Ist die Aktion ausgeschlossen von Kategorien oder Marken?</label>
@@ -129,11 +135,7 @@
         data-nl="tprosafe">tprosafe</button>
                 </div>
             </div>
-            <div class="col-12">
-                <label class="form-label h5">Ist die Aktion kombinierbar?</label><br>
-                <button type="button" class="btn btn-outline-secondary" onclick="updateCombinability(false)">Nicht kombinierbar</button>
-                <button type="button" class="btn btn-outline-secondary" onclick="updateCombinability(true)">Kombinierbar</button>
-            </div>
+            
         </form>
         <div id="result" class="mt-3"></div>
     </div>
@@ -202,38 +204,40 @@
     const endDate = document.getElementById('endDate').value;
 
     // Grundlegenden Text für jede Sprache vorbereiten
-    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher MwSt. Dieser Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
     let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
     let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+
+    
+
+    let combinabilityTextDe = !isCombinable ? " Diese Aktion ist nicht kombinierbar mit anderen Aktionen. " : "";
+    let combinabilityTextFr = !isCombinable ? " Cette promotion n'est pas cumulable avec d'autres promotions. " : "";
+    let combinabilityTextNl = !isCombinable ? " Deze actie is niet combineerbaar met andere acties. " : "";
 
     if (exclusions.length > 0 && exclusions[0].de !== 'Nein') {
         let categoryListDe = exclusions.map(ex => ex.de).join(', ');
         let categoryListFr = exclusions.map(ex => ex.fr).join(', ');
         let categoryListNl = exclusions.map(ex => ex.nl).join(', ');
 
-        exclusionTextDe += ` Ausgeschlossen sind Artikel aus der Kategorie/Marke: ${categoryListDe}.`;
-        exclusionTextFr += ` Sont exclus les articles de la catégorie/marque: ${categoryListFr}.`;
-        exclusionTextNl += ` Uitgesloten zijn artikelen uit/van de volgende categorieën/merken: ${categoryListNl}.`;
+        exclusionTextDe += ` <br><br>Ausgeschlossen sind Artikel aus der Kategorie/Marke: ${categoryListDe}.`;
+        exclusionTextFr += ` <br><br>Sont exclus les articles de la catégorie/marque: ${categoryListFr}.`;
+        exclusionTextNl += ` <br><br>Uitgesloten zijn artikelen uit/van de volgende categorieën/merken: ${categoryListNl}.`;
     }
-
-    let combinabilityTextDe = !isCombinable ? " Dieser Aktion ist nicht kombinierbar mit anderen Aktionen." : "";
-    let combinabilityTextFr = !isCombinable ? " Cette promotion n'est pas cumulable avec d'autres promotions." : "";
-    let combinabilityTextNl = !isCombinable ? " Deze actie is niet combineerbaar met andere acties." : "";
 
     document.getElementById('result').innerHTML = `<div class="alert alert-success">
         <strong>Deutsch:</strong><br> Aktionstitel: ${deTitle}<br>
         Aktionszeitraum: Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}<br>
-        Aktionsregeln: ${exclusionTextDe}${combinabilityTextDe}
+        Aktionsregeln: ${combinabilityTextDe}${exclusionTextDe}
     </div>
     <div class="alert alert-success">
         <strong>Französisch:</strong><br> Aktionstitel: ${frTitle}<br>
         Aktionszeitraum: Promotion valable du ${startDate} au ${endDate}<br>
-        Aktionsregeln: ${exclusionTextFr}${combinabilityTextFr}
+        Aktionsregeln: ${combinabilityTextFr}${exclusionTextFr}
     </div>
     <div class="alert alert-success">
         <strong>Niederländisch:</strong><br> Aktionstitel: ${nlTitle}<br>
         Aktionszeitraum: Actie geldig van ${startDate} tot en met ${endDate}<br>
-        Aktionsregeln: ${exclusionTextNl}${combinabilityTextNl}
+        Aktionsregeln: ${combinabilityTextNl}${exclusionTextNl}
     </div>
     <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Kopieren</button>
     <button type="button" class="btn btn-secondary" onclick="resetForm()">Zurücksetzen</button>
