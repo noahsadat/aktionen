@@ -32,7 +32,7 @@
                     Bitte geben Sie den Titel ein.
                 </div>
             </div>
-
+            <h5>Aktionsbeschreibung?(optional)</h5>
             <div class="col-md-4">
                 <label for="deDescription" class="form-label">Aktionsbeschreibung (Deutsch):</label>
                 <input type="text" class="form-control" id="deDescription" name="deDescription" required>
@@ -223,6 +223,9 @@
     const deTitle = document.getElementById('deTitle').value;
     const frTitle = document.getElementById('frTitle').value;
     const nlTitle = document.getElementById('nlTitle').value;
+    const deDescription = document.getElementById('deDescription').value;
+    const frDescription = document.getElementById('frDescription').value;
+    const nlDescription = document.getElementById('nlDescription').value;
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
 
@@ -249,16 +252,19 @@
 
     document.getElementById('result').innerHTML = `<div class="alert alert-success">
         <strong>Deutsch:</strong><br> Aktionstitel: ${deTitle}<br>
+        Aktionsbeschreibung: ${deDescription}<br>
         Aktionszeitraum: Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}<br>
         Aktionsregeln: ${combinabilityTextDe}${exclusionTextDe}
     </div>
     <div class="alert alert-success">
         <strong>Französisch:</strong><br> Aktionstitel: ${frTitle}<br>
+        Aktionsbeschreibung: ${frDescription}<br>
         Aktionszeitraum: Promotion valable du ${startDate} au ${endDate}<br>
         Aktionsregeln: ${combinabilityTextFr}${exclusionTextFr}
     </div>
     <div class="alert alert-success">
         <strong>Niederländisch:</strong><br> Aktionstitel: ${nlTitle}<br>
+        Aktionsbeschreibung: ${nlDescription}<br>
         Aktionszeitraum: Actie geldig van ${startDate} tot en met ${endDate}<br>
         Aktionsregeln: ${combinabilityTextNl}${exclusionTextNl}
     </div>
