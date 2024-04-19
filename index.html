@@ -32,6 +32,21 @@
                     Bitte geben Sie den Titel ein.
                 </div>
             </div>
+            <div class="col-md-4">
+                <label for="enTitle" class="form-label">Aktionstitel (Englisch):</label>
+                <input type="text" class="form-control" id="enTitle" name="enTitle" required>
+                <div class="invalid-feedback">
+                    Bitte geben Sie den Titel ein.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="itTitle" class="form-label">Aktionstitel (Italienisch):</label>
+                <input type="text" class="form-control" id="itTitle" name="itTitle" required>
+                <div class="invalid-feedback">
+                    Bitte geben Sie den Titel ein.
+                </div>
+            </div>
+            
             <h5>Aktionsbeschreibung?(optional)</h5>
             <div class="col-md-4">
                 <label for="deDescription" class="form-label">Aktionsbeschreibung (Deutsch):</label>
@@ -50,6 +65,20 @@
             <div class="col-md-4">
                 <label for="nlDescription" class="form-label">Aktionsbeschreibung (Niederländisch):</label>
                 <input type="text" class="form-control" id="nlDescription" name="nlDescription" required>
+                <div class="invalid-feedback">
+                    Bitte geben Sie den Titel ein.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="enDescription" class="form-label">Aktionsbeschreibung (Englisch):</label>
+                <input type="text" class="form-control" id="enDescription" name="enDescription" required>
+                <div class="invalid-feedback">
+                    Bitte geben Sie den Titel ein.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="itDescription" class="form-label">Aktionsbeschreibung (Italienisch):</label>
+                <input type="text" class="form-control" id="itDescription" name="itDescription" required>
                 <div class="invalid-feedback">
                     Bitte geben Sie den Titel ein.
                 </div>
@@ -141,9 +170,9 @@
 
         <button type="button" class="btn btn-outline-secondary exclusion-option" 
         onclick="updateExclusions(this)"
-        data-de="Kerbel"
-        data-fr="Kerbel"
-        data-nl="Kerbel">Kerbel</button>
+        data-de="Kerbl"
+        data-fr="Kerbl"
+        data-nl="Kerbl">Kerbl</button>
 
         <button type="button" class="btn btn-outline-secondary exclusion-option" 
         onclick="updateExclusions(this)"
@@ -240,6 +269,16 @@ document.getElementById('deTitle').addEventListener('change', function() {
     translateWithDeepL(titleText, 'NL', apiKey).then(translatedText => {
         document.getElementById('nlTitle').value = translatedText; // Make sure this matches the ID in your HTML
     });
+
+    // Translate title to English
+    translateWithDeepL(titleText, 'EN', apiKey).then(translatedText => {
+        document.getElementById('enTitle').value = translatedText; // Make sure this matches the ID in your HTML
+    });
+    
+    // Translate title to Italian
+    translateWithDeepL(titleText, 'IT', apiKey).then(translatedText => {
+        document.getElementById('itTitle').value = translatedText; // Make sure this matches the ID in your HTML
+    });
 });
 
 
@@ -255,6 +294,16 @@ document.getElementById('deDescription').addEventListener('change', function() {
     // Translate to Dutch
     translateWithDeepL(deText, 'NL', apiKey).then(translatedText => {
         document.getElementById('nlDescription').value = translatedText;
+    });
+
+    // Translate to English
+    translateWithDeepL(deText, 'EN', apiKey).then(translatedText => {
+        document.getElementById('enDescription').value = translatedText;
+    });
+
+    // Translate to English
+    translateWithDeepL(deText, 'IT', apiKey).then(translatedText => {
+        document.getElementById('itDescription').value = translatedText;
     });
 });
 
@@ -280,9 +329,13 @@ document.getElementById('deDescription').addEventListener('change', function() {
     const deTitle = document.getElementById('deTitle').value;
     const frTitle = document.getElementById('frTitle').value;
     const nlTitle = document.getElementById('nlTitle').value;
+    const enTitle = document.getElementById('enTitle').value;
+    const itTitle = document.getElementById('itTitle').value;
     const deDescription = document.getElementById('deDescription').value;
     const frDescription = document.getElementById('frDescription').value;
     const nlDescription = document.getElementById('nlDescription').value;
+    const enDescription = document.getElementById('enDescription').value;
+    const itDescription = document.getElementById('itDescription').value;
     const startDate = document.getElementById('startDate').value;
     const endDate = document.getElementById('endDate').value;
 
@@ -290,24 +343,41 @@ document.getElementById('deDescription').addEventListener('change', function() {
     let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
     let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
     let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. This promotion only applies to selected items. Contractually negotiated prices are excluded.";
+    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
 
     
 
     let combinabilityTextDe = !isCombinable ? " Diese Aktion ist nicht kombinierbar mit anderen Aktionen. " : "";
     let combinabilityTextFr = !isCombinable ? " Cette promotion n'est pas cumulable avec d'autres promotions. " : "";
     let combinabilityTextNl = !isCombinable ? " Deze actie is niet combineerbaar met andere acties. " : "";
+    let combinabilityTextEn = !isCombinable ? " This promotion cannot be combined with other promotions. " : "";
+    let combinabilityTextIt = !isCombinable ? " Questa promozione non è cumulabile con altre promozioni. " : "";
 
     if (exclusions.length > 0 && exclusions[0].de !== 'Nein') {
         let categoryListDe = exclusions.map(ex => ex.de).join(', ');
         let categoryListFr = exclusions.map(ex => ex.fr).join(', ');
         let categoryListNl = exclusions.map(ex => ex.nl).join(', ');
+        let categoryListEn = exclusions.map(ex => ex.en).join(', ');
+        let categoryListIt = exclusions.map(ex => ex.it).join(', ');
 
         exclusionTextDe += ` <br><br>Ausgeschlossen sind Artikel aus der Kategorie/Marke: ${categoryListDe}.`;
         exclusionTextFr += ` <br><br>Sont exclus les articles de la catégorie/marque: ${categoryListFr}.`;
         exclusionTextNl += ` <br><br>Uitgesloten zijn artikelen uit/van de volgende categorieën/merken: ${categoryListNl}.`;
+        exclusionTextEn += ` <br><br>Items from following Categories/Brands are excluded: ${categoryListEn}.`;
+        exclusionTextIt += ` <br><br>Sono esclusi gli articoli della categoria/marca: ${categoryListIt}.`;
     }
 
-    document.getElementById('result').innerHTML = `<div class="alert alert-success">
+    document.getElementById('result').innerHTML = `
+    
+    <div class="container text-center my-3">
+        <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Kopieren</button>
+    <button type="button" class="btn btn-secondary" onclick="resetForm()">Zurücksetzen</button>
+    <button type="button" class="btn btn-secondary" onclick="downloadXML()">XML-Datei Herunterladen</button>
+    </div>
+    
+
+    <div class="alert alert-success">
         <strong>Deutsch:</strong><br> Aktionstitel: ${deTitle}<br>
         Aktionsbeschreibung: ${deDescription}<br>
         Aktionszeitraum: Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}<br>
@@ -325,9 +395,18 @@ document.getElementById('deDescription').addEventListener('change', function() {
         Aktionszeitraum: Actie geldig van ${startDate} tot en met ${endDate}<br>
         Aktionsregeln: ${combinabilityTextNl}${exclusionTextNl}
     </div>
-    <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Kopieren</button>
-    <button type="button" class="btn btn-secondary" onclick="resetForm()">Zurücksetzen</button>
-    <button type="button" class="btn btn-secondary" onclick="downloadXML()">XML-Datei Herunterladen</button>
+    <div class="alert alert-success">
+        <strong>Englisch:</strong><br> Aktionstitel: ${enTitle}<br>
+        Aktionsbeschreibung: ${enDescription}<br>
+        Aktionszeitraum: This promotion is valid from ${startDate} to ${endDate}<br>
+        Aktionsregeln: ${combinabilityTextEn}${exclusionTextEn}
+    </div>
+    <div class="alert alert-success">
+        <strong>Italienisch:</strong><br> Aktionstitel: ${itTitle}<br>
+        Aktionsbeschreibung: ${itDescription}<br>
+        Aktionszeitraum: Questa promozione è valida da ${startDate} a ${endDate}<br>
+        Aktionsregeln: ${combinabilityTextIt}${exclusionTextIt}
+    </div>
     `;
 }
 
@@ -482,27 +561,42 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
 <custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;Rechtliche Hinweise EN&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Rechtliche Hinweise IT&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;ltitleDe&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;ltitleIT&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;RegelbeschreibungEN&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedStartDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedStartDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Regelbeschreibung IT&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedStartDate.format1}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedStartDate.format1}&lt;/p&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;titleDe&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;titleDe&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
 <custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
 <custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
