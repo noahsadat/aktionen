@@ -373,7 +373,9 @@ document.getElementById('deDescription').addEventListener('change', function() {
     <div class="container text-center my-3">
         <button type="button" class="btn btn-primary" onclick="copyToClipboard()">Kopieren</button>
     <button type="button" class="btn btn-secondary" onclick="resetForm()">Zurücksetzen</button>
-    <button type="button" class="btn btn-success" onclick="downloadXML()">XML-Datei Herunterladen</button>
+    <button type="button" class="btn btn-success" onclick="downloadXML()">XML- TECHNOLIT</button>
+    <button type="button" class="btn btn-success" onclick="downloadXML1()">XML- IWETEC</button>
+    <button type="button" class="btn btn-success" onclick="downloadXML2()">XML- HOTREGA</button>
     </div>
     
 
@@ -475,7 +477,13 @@ function formatDate(dateString) {
 let fullActionRulesTextDe, fullActionRulesTextFr, fullActionRulesTextNl;
 
 function downloadXML() {
-    const promotionId = generatePromotionId(); // Generate a unique promotion ID
+    const promotionId1 = generatePromotionId(); // Generate a unique promotion ID
+    const promotionId2 = generatePromotionId();
+    const promotionId3 = generatePromotionId();
+    const promotionId4 = generatePromotionId();
+    const promotionId5 = generatePromotionId();
+    const promotionId6 = generatePromotionId();
+
     const deTitle = document.getElementById('deTitle').value;
     const frTitle = document.getElementById('frTitle').value;
     const nlTitle = document.getElementById('nlTitle').value;
@@ -512,7 +520,7 @@ function downloadXML() {
     let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
 
 
-    const xmlContent = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+    const xmlContent1 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <enfinity
 xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
 http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
@@ -522,7 +530,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns:xml="http://www.w3.org/XML/1998/namespace"
 xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
 major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
-<promotion id="${promotionId}">
+<promotion id="${promotionId1}">
 <active>true</active>
 <applications>rest</applications>
 <effect-discount-level>false</effect-discount-level>
@@ -537,6 +545,1990 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
 <multiple-allowed>false</multiple-allowed>
 <available>true</available>
 <stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_E" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_A" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_T" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_L" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_I" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_M" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_S" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_Q" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_W" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_J" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_V" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_D" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_C" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_H" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_Z" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_N" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_O" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_R" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_P" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_U" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_B" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_K" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_F" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_G" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_X" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+<usergroups id="CG_Y" domain="TECHNOLIT-TECHNOLIT_DE-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="8286" domain="TECHNOLIT-8286"/>
+<category-exclusion id="10070" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14057" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14058" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14059" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8293" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8358" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8360" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8361" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8938" domain="TECHNOLIT-8286"/>
+<category-exclusion id="9232" domain="TECHNOLIT-8286"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">ELORA</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Condor® Werkzeug</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWalt</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+    const xmlContent2 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId2}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_E" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_A" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_T" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_L" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_I" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_M" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_S" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_Q" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_W" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_J" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_V" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_D" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_C" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_H" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_Z" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_N" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_O" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_R" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_P" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_U" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_B" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_K" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_F" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_G" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_X" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+<usergroups id="CG_Y" domain="TECHNOLIT-TECHNOLIT_AT-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="8286" domain="TECHNOLIT-8286"/>
+<category-exclusion id="10070" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14057" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14058" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14059" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8293" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8358" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8360" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8361" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8938" domain="TECHNOLIT-8286"/>
+<category-exclusion id="9232" domain="TECHNOLIT-8286"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">ELORA</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Condor® Werkzeug</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWalt</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+    const xmlContent3 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId3}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_E" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_A" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_T" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_L" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_I" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_M" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_S" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_Q" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_W" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_J" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_V" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_D" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_C" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_H" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_Z" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_N" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_O" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_R" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_P" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_U" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_B" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_K" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_F" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_G" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_X" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+<usergroups id="CG_Y" domain="TECHNOLIT-TECHNOLIT_BE-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="8286" domain="TECHNOLIT-8286"/>
+<category-exclusion id="10070" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14057" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14058" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14059" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8293" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8358" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8360" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8361" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8938" domain="TECHNOLIT-8286"/>
+<category-exclusion id="9232" domain="TECHNOLIT-8286"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">ELORA</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Condor® Werkzeug</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWalt</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+    const xmlContent4 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId4}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_E" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_A" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_T" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_L" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_I" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_M" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_S" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_Q" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_W" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_J" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_V" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_D" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_C" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_H" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_Z" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_N" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_O" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_R" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_P" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_U" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_B" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_K" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_F" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_G" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_X" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+<usergroups id="CG_Y" domain="TECHNOLIT-TECHNOLIT_FR-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="8286" domain="TECHNOLIT-8286"/>
+<category-exclusion id="10070" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14057" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14058" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14059" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8293" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8358" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8360" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8361" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8938" domain="TECHNOLIT-8286"/>
+<category-exclusion id="9232" domain="TECHNOLIT-8286"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">ELORA</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Condor® Werkzeug</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWalt</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+    const xmlContent5 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId5}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_E" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_A" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_T" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_L" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_I" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_M" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_S" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_Q" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_W" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_J" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_V" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_D" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_C" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_H" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_Z" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_N" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_O" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_R" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_P" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_U" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_B" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_K" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_F" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_G" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_X" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+<usergroups id="CG_Y" domain="TECHNOLIT-TECHNOLIT_IT-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="8286" domain="TECHNOLIT-8286"/>
+<category-exclusion id="10070" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14057" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14058" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14059" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8293" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8358" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8360" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8361" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8938" domain="TECHNOLIT-8286"/>
+<category-exclusion id="9232" domain="TECHNOLIT-8286"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">ELORA</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Condor® Werkzeug</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWalt</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+    const xmlContent6 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId6}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_E" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_A" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_T" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_L" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_I" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_M" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_S" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_Q" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_W" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_J" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_V" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_D" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_C" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_H" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_Z" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_N" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_O" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_R" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_P" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_U" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_B" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_K" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_F" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_G" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_X" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+<usergroups id="CG_Y" domain="TECHNOLIT-TECHNOLIT_NL-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="8286" domain="TECHNOLIT-8286"/>
+<category-exclusion id="10070" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14057" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14058" domain="TECHNOLIT-8286"/>
+<category-exclusion id="14059" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8293" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8358" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8360" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8361" domain="TECHNOLIT-8286"/>
+<category-exclusion id="8938" domain="TECHNOLIT-8286"/>
+<category-exclusion id="9232" domain="TECHNOLIT-8286"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">ELORA</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Condor® Werkzeug</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWalt</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+    const xmlContents = [
+        { content: xmlContent1, filename: 'TECHNOLIT_DE.xml' },
+        { content: xmlContent2, filename: 'TECHNOLIT_AT.xml' },
+        { content: xmlContent3, filename: 'TECHNOLIT_BE.xml' },
+        { content: xmlContent4, filename: 'TECHNOLIT_FR.xml' },
+        { content: xmlContent5, filename: 'TECHNOLIT_IT.xml' },
+        { content: xmlContent6, filename: 'TECHNOLIT_NL.xml' },
+    ];
+
+    xmlContents.forEach(xml => {
+        const blob = new Blob([xml.content], { type: 'application/xml' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = xml.filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    });
+}
+
+
+function downloadXML1() {
+    const promotionId7 = generatePromotionId();
+    const promotionId8 = generatePromotionId();
+
+    const deTitle = document.getElementById('deTitle').value;
+    const frTitle = document.getElementById('frTitle').value;
+    const nlTitle = document.getElementById('nlTitle').value;
+    const enTitle = document.getElementById('enTitle').value;
+    const itTitle = document.getElementById('itTitle').value;
+    const deDescription = document.getElementById('deDescription').value;
+    const frDescription = document.getElementById('frDescription').value;
+    const nlDescription = document.getElementById('nlDescription').value;
+    const enDescription = document.getElementById('enDescription').value;
+    const itDescription = document.getElementById('itDescription').value;
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+    const formattedStartDate = formatDate(startDate);
+    const formattedEndDate = formatDate(endDate);
+
+    // Deutsch
+    let combinabilityTextDe = isCombinable ? "" : "Diese Aktion ist nicht kombinierbar.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    
+    // Französisch
+    let combinabilityTextFr = isCombinable ? "" : "Cette promotion n'est pas combinable avec d'autres promotions.";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion s'applique uniquement aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
+
+    // Niederländisch
+    let combinabilityTextNl = isCombinable ? "" : "Deze actie is niet combineerbaar met andere acties.";
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+
+    // Englisch
+    let combinabilityTextEn = isCombinable ? "" : "This promotion cannot be combined with other promotions.";
+    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.";
+
+    // Italienisch
+    let combinabilityTextIt = isCombinable ? "" : "Questa promozione non è cumulabile con altre promozioni.";
+    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
+
+
+    const xmlContent7 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId7}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_W" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_V" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_G" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_Q" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_C" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_U" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_E" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_B" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_H" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_O" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_Z" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_X" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_Y" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_K" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_A" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_P" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_S" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_D" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_T" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_R" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_I" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_J" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_N" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_F" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_L" domain="IWETEC-IWETEC_DE-Anonymous"/>
+<usergroups id="CG_M" domain="IWETEC-IWETEC_DE-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="6762" domain="IWETEC-6762"/>
+<category-exclusion id="7386" domain="IWETEC-6762"/>
+<category-exclusion id="7387" domain="IWETEC-6762"/>
+<category-exclusion id="7389" domain="IWETEC-6762"/>
+<category-exclusion id="7775" domain="IWETEC-6762"/>
+<category-exclusion id="8883" domain="IWETEC-6762"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWALT</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWALT</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">KERBL</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>4</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">NILFISK</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+const xmlContent8 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId8}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="CG_F" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_G" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_T" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_N" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_M" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_O" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_P" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_J" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_E" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_Z" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_R" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_U" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_D" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_Y" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_H" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_A" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_X" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_Q" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_L" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_V" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_C" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_B" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_W" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_S" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_I" domain="IWETEC-IWETEC_AT-Anonymous"/>
+<usergroups id="CG_K" domain="IWETEC-IWETEC_AT-Anonymous"/>
+</target-group>
+<budget>
+<budget-id></budget-id>
+<budget-notification-threshold>0.0</budget-notification-threshold>
+<budget-notification-email></budget-notification-email>
+<send-mail-if-budget-reached>false</send-mail-if-budget-reached>
+<send-mail-if-threshold-reached>false</send-mail-if-threshold-reached>
+<disable-by-budget>false</disable-by-budget>
+<unlimited>true</unlimited>
+</budget>
+<promotion-code-definition>
+<promotion-code-required>false</promotion-code-required>
+<single-code></single-code>
+<single-code-total>0</single-code-total>
+<unlimited>true</unlimited>
+<code-customer-unlimited>false</code-customer-unlimited>
+<use-promotion-code-groups>false</use-promotion-code-groups>
+</promotion-code-definition>
+<combination>0</combination>
+<rebates>
+<currency>EUR</currency>
+<type-code>0</type-code>
+<classification-type-code>0</classification-type-code>
+<position>0</position>
+<condition-override-application-exclusion>false</condition-override-application-exclusion>
+<action-override-application-exclusion>false</action-override-application-exclusion>
+<condition>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>1</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemInclusionsExclusionsCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<inclusions-exclusions>
+<scope>CONDITION</scope>
+<category-inclusion id="6762" domain="IWETEC-6762"/>
+<category-exclusion id="7386" domain="IWETEC-6762"/>
+<category-exclusion id="7387" domain="IWETEC-6762"/>
+<category-exclusion id="7389" domain="IWETEC-6762"/>
+<category-exclusion id="7775" domain="IWETEC-6762"/>
+<category-exclusion id="8883" domain="IWETEC-6762"/>
+</inclusions-exclusions>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Milwaukee</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">HiKOKI</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>2</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWALT</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
+<position>3</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">DeWALT</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">KERBL</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>4</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">NILFISK</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+</condition>
+</rebates>
+<content>
+<content-activation-type>0</content-activation-type>
+</content>
+<use-campaign-target-group>false</use-campaign-target-group>
+<use-campaign-time-frame>false</use-campaign-time-frame>
+<custom-attributes>
+<custom-attribute name="DisableMessages" ns2:dt="boolean">false</custom-attribute>
+<custom-attribute name="EditedDate" ns2:dt="date">2024-04-18T09:10:44+00:00</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${combinabilityTextDe}${exclusionTextDe}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${combinabilityTextEn}${exclusionTextEn}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${combinabilityTextFr}${exclusionTextFr}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${combinabilityTextIt}${exclusionTextIt}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LegalContentMessage" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${combinabilityTextNl}${exclusionTextNl}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;${deDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="en-US">&lt;p&gt;${enDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;${frDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;${itDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="LongTitle" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;${nlDescription}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-AT">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="de-DE">&lt;p&gt;Diese Aktion ist gültig vom ${startDate} bis zum ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="en-US">&lt;p&gt;This promotion is valid from ${startDate} to ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-BE">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="fr-FR">&lt;p&gt;Promotion valable du ${formattedStartDate.format1} au ${formattedEndDate.format2}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="it-IT">&lt;p&gt;Questa promozione è valida da ${startDate} a ${endDate}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-BE">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="RuleDescription" ns2:dt="text" xml:lang="nl-NL">&lt;p&gt;Actie geldig van ${formattedStartDate.format1} tot en met ${formattedEndDate.format1}&lt;/p&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-AT">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="de-DE">&lt;h3&gt;&lt;strong&gt;${deTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="en-US">&lt;h3&gt;&lt;strong&gt;${enTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-BE">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="fr-FR">&lt;h3&gt;&lt;strong&gt;${frTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="it-IT">&lt;h3&gt;&lt;strong&gt;${itTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-BE">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="Title" ns2:dt="text" xml:lang="nl-NL">&lt;h3&gt;&lt;strong&gt;${nlTitle}&lt;/strong&gt;&lt;/h3&gt;</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-AT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="de-DE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="en-US">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="fr-FR">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="it-IT">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-BE">false</custom-attribute>
+<custom-attribute name="UseExternalURL" ns2:dt="boolean" xml:lang="nl-NL">false</custom-attribute>
+<custom-attribute name="displayName" ns2:dt="string" xml:lang="de-DE">${deTitle}</custom-attribute>
+</custom-attributes>
+</promotion>
+</enfinity>`;
+
+        const xmlContents = [
+        { content: xmlContent7, filename: 'IWETEC_DE.xml' },
+        { content: xmlContent8, filename: 'IWETEC_AT.xml' },
+    ];
+
+    xmlContents.forEach(xml => {
+        const blob = new Blob([xml.content], { type: 'application/xml' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = xml.filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    });
+}
+
+
+function downloadXML2() {
+    const promotionId9 = generatePromotionId();
+
+    const deTitle = document.getElementById('deTitle').value;
+    const frTitle = document.getElementById('frTitle').value;
+    const nlTitle = document.getElementById('nlTitle').value;
+    const enTitle = document.getElementById('enTitle').value;
+    const itTitle = document.getElementById('itTitle').value;
+    const deDescription = document.getElementById('deDescription').value;
+    const frDescription = document.getElementById('frDescription').value;
+    const nlDescription = document.getElementById('nlDescription').value;
+    const enDescription = document.getElementById('enDescription').value;
+    const itDescription = document.getElementById('itDescription').value;
+    const startDate = document.getElementById('startDate').value;
+    const endDate = document.getElementById('endDate').value;
+    const formattedStartDate = formatDate(startDate);
+    const formattedEndDate = formatDate(endDate);
+
+    // Deutsch
+    let combinabilityTextDe = isCombinable ? "" : "Diese Aktion ist nicht kombinierbar.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    
+    // Französisch
+    let combinabilityTextFr = isCombinable ? "" : "Cette promotion n'est pas combinable avec d'autres promotions.";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion s'applique uniquement aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
+
+    // Niederländisch
+    let combinabilityTextNl = isCombinable ? "" : "Deze actie is niet combineerbaar met andere acties.";
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+
+    // Englisch
+    let combinabilityTextEn = isCombinable ? "" : "This promotion cannot be combined with other promotions.";
+    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.";
+
+    // Italienisch
+    let combinabilityTextIt = isCombinable ? "" : "Questa promozione non è cumulabile con altre promozioni.";
+    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
+
+
+    const xmlContent9 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<enfinity
+xsi:schemaLocation="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex bc_marketing.xsd
+http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt dt.xsd"
+xmlns="http://www.intershop.com/xml/ns/enfinity/6.6/bc_marketing/impex"
+xmlns:ns2="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:xml="http://www.w3.org/XML/1998/namespace"
+xmlns:dt="http://www.intershop.com/xml/ns/enfinity/6.5/core/impex-dt"
+major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
+<promotion id="${promotionId9}">
+<active>true</active>
+<applications>rest</applications>
+<effect-discount-level>false</effect-discount-level>
+<rank>0</rank>
+<start-date>${formattedStartDate.format2}T23:50:00+00:00</start-date>
+<end-date>${formattedEndDate.format2}T22:50:00+00:00</end-date>
+<type-code>0</type-code>
+<creator-id>00001106@IWETEC</creator-id>
+<currency>EUR</currency>
+<combinable>false</combinable>
+<default-rank>true</default-rank>
+<multiple-allowed>false</multiple-allowed>
+<available>true</available>
+<stop-further-promotions>false</stop-further-promotions>
+<target-group>
+<usergroups id="Everyone" domain="HOTREGA-HOTREGA_DE-Anonymous"/>
+</target-group>
 <budget>
 <budget-id></budget-id>
 <budget-notification-threshold>0.0</budget-notification-threshold>
@@ -616,18 +2608,23 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.3.1.1-dev1">
 </promotion>
 </enfinity>`;
 
-    const blob = new Blob([xmlContent], { type: 'application/xml' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Aktionsvorlage.xml';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
+
+        const xmlContents = [
+        { content: xmlContent9, filename: 'HOTREGA_DE.xml' },
+    ];
+
+    xmlContents.forEach(xml => {
+        const blob = new Blob([xml.content], { type: 'application/xml' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = xml.filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    });
 }
-
-
 
 
 </script>
