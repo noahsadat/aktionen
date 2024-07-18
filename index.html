@@ -340,11 +340,11 @@ document.getElementById('deDescription').addEventListener('change', function() {
     const endDate = document.getElementById('endDate').value;
 
     // Grundlegenden Text für jede Sprache vorbereiten
-    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
-    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
-    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
-    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.";
-    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise. <a href='page/aktionsbedingungen/'>Aktionsbedingungen.</a>";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus. <a href='page/aktionsbedingungen/'>Conditions de l'action.</a>"      ;
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten. <a href='page/aktionsbedingungen/'>Actievoorwaarden.</a>";
+    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded. <a href='page/aktionsbedingungen/'>Terms of action.</a> ";
+    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente. <a href='page/aktionsbedingungen/'>Termini d'azione.</a>";
 
     
 
@@ -501,23 +501,23 @@ function downloadXML() {
 
     // Deutsch
     let combinabilityTextDe = isCombinable ? "" : "Diese Aktion ist nicht kombinierbar.";
-    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise. <a href='page/aktionsbedingungen/'>Aktionsbedingungen.</a>";
     
     // Französisch
     let combinabilityTextFr = isCombinable ? "" : "Cette promotion n'est pas combinable avec d'autres promotions.";
-    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion s'applique uniquement aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus. <a href='page/aktionsbedingungen/'>Conditions de l'action.</a>"      ;
 
     // Niederländisch
     let combinabilityTextNl = isCombinable ? "" : "Deze actie is niet combineerbaar met andere acties.";
-    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten. <a href='page/aktionsbedingungen/'>Actievoorwaarden.</a>";
 
     // Englisch
     let combinabilityTextEn = isCombinable ? "" : "This promotion cannot be combined with other promotions.";
-    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.";
+    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded. <a href='page/aktionsbedingungen/'>Terms of action.</a> ";
 
     // Italienisch
     let combinabilityTextIt = isCombinable ? "" : "Questa promozione non è cumulabile con altre promozioni.";
-    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
+    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente. <a href='page/aktionsbedingungen/'>Termini d'azione.</a>";
 
 
     const xmlContent1 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1950,23 +1950,23 @@ function downloadXML1() {
 
     // Deutsch
     let combinabilityTextDe = isCombinable ? "" : "Diese Aktion ist nicht kombinierbar.";
-    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise. <a href='page/aktionsbedingungen/'>Aktionsbedingungen.</a>";
     
     // Französisch
     let combinabilityTextFr = isCombinable ? "" : "Cette promotion n'est pas combinable avec d'autres promotions.";
-    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion s'applique uniquement aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus. <a href='page/aktionsbedingungen/'>Conditions de l'action.</a>"      ;
 
     // Niederländisch
     let combinabilityTextNl = isCombinable ? "" : "Deze actie is niet combineerbaar met andere acties.";
-    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten. <a href='page/aktionsbedingungen/'>Actievoorwaarden.</a>";
 
     // Englisch
     let combinabilityTextEn = isCombinable ? "" : "This promotion cannot be combined with other promotions.";
-    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.";
+    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded. <a href='page/aktionsbedingungen/'>Terms of action.</a> ";
 
     // Italienisch
     let combinabilityTextIt = isCombinable ? "" : "Questa promozione non è cumulabile con altre promozioni.";
-    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
+    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente. <a href='page/aktionsbedingungen/'>Termini d'azione.</a>";
 
 
     const xmlContent7 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -2482,23 +2482,23 @@ function downloadXML2() {
 
     // Deutsch
     let combinabilityTextDe = isCombinable ? "" : "Diese Aktion ist nicht kombinierbar.";
-    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.";
+    let exclusionTextDe = "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise. <a href='page/aktionsbedingungen/'>Aktionsbedingungen.</a>";
     
     // Französisch
     let combinabilityTextFr = isCombinable ? "" : "Cette promotion n'est pas combinable avec d'autres promotions.";
-    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion s'applique uniquement aux articles sélectionnés. Les prix convenus contractuellement sont exclus.";
+    let exclusionTextFr = "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus. <a href='page/aktionsbedingungen/'>Conditions de l'action.</a>"      ;
 
     // Niederländisch
     let combinabilityTextNl = isCombinable ? "" : "Deze actie is niet combineerbaar met andere acties.";
-    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.";
+    let exclusionTextNl = "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten. <a href='page/aktionsbedingungen/'>Actievoorwaarden.</a>";
 
     // Englisch
     let combinabilityTextEn = isCombinable ? "" : "This promotion cannot be combined with other promotions.";
-    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.";
+    let exclusionTextEn = "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded. <a href='page/aktionsbedingungen/'>Terms of action.</a> ";
 
     // Italienisch
     let combinabilityTextIt = isCombinable ? "" : "Questa promozione non è cumulabile con altre promozioni.";
-    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.";
+    let exclusionTextIt = "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente. <a href='page/aktionsbedingungen/'>Termini d'azione.</a>";
 
 
     const xmlContent9 = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
