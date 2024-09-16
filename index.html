@@ -24,10 +24,10 @@
         <div id="aktionsgenerator" class="tab-content active">
             <!-- Content for Aktionsgenerator will be loaded here -->
         </div>
-        <div id="cross-seller" class="tab-content">
+        <div id="cross-seller" class="tab-content" style="display: none;">
             <!-- Content for Cross-seller generator -->
         </div>
-        <div id="zugabe" class="tab-content">
+        <div id="zugabe" class="tab-content" style="display: none;">
             <!-- Content for Zugabe-aktionsgenerator -->
         </div>
     </div>
@@ -45,15 +45,28 @@
         });
 
         // Load content for Aktionsgenerator
-        fetch('/aktionsgenerator.html')
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById('aktionsgenerator').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Error loading Aktionsgenerator content:', error);
-                document.getElementById('aktionsgenerator').innerHTML = '<p>Error loading content. Please try again later.</p>';
-            });
+        function loadContent() {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        document.getElementById('aktionsgenerator').innerHTML = xhr.responseText;
+                        console.log('Content loaded successfully');
+                    } else {
+                        console.error('Error loading content. Status:', xhr.status);
+                        document.getElementById('aktionsgenerator').innerHTML = '<p>Error loading content. Please try again later.</p>';
+                    }
+                }
+            };
+            xhr.onerror = function() {
+                console.error('Request error');
+            };
+            xhr.open('GET', 'aktionsgenerator.html', true);
+            xhr.send();
+        }
+
+        // Call the function to load the content
+        loadContent();
     </script>
 </body>
 </html>
