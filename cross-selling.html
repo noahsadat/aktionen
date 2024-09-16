@@ -20,6 +20,10 @@
             <label for="categoryRank" class="form-label">Kategorie-Rang</label>
             <input class="form-control" type="text" id="categoryRank">
         </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="includeWertelisteneintragID">
+            <label class="form-check-label" for="includeWertelisteneintragID">Wertelisteneintrag-ID einschließen</label>
+        </div>
         <button id="processButton" class="btn btn-primary">Generieren und herunterladen</button>
     </div>
 
@@ -30,6 +34,7 @@
         document.getElementById('processButton').addEventListener('click', async function() {
             const fileInput = document.getElementById('excelFile');
             const categoryRank = document.getElementById('categoryRank').value;
+            const includeWertelisteneintragID = document.getElementById('includeWertelisteneintragID').checked;
             const file = fileInput.files[0];
             
             if (file) {
@@ -45,12 +50,19 @@
                     const newWorkbook = new ExcelJS.Workbook();
                     const newWorksheet = newWorkbook.addWorksheet('Cross-Selling');
                     
-                    newWorksheet.addRow(['Artikel', 'Cross-Sell-Artikel', 'Kategorie-Rang', 'Wertelisteneintrag-ID']);
+                    const headers = includeWertelisteneintragID 
+                        ? ['Artikel', 'Cross-Sell-Artikel', 'Kategorie-Rang', 'Wertelisteneintrag-ID']
+                        : ['Artikel', 'Cross-Sell-Artikel', 'Kategorie-Rang'];
+                    newWorksheet.addRow(headers);
                     
                     for (let i = 1; i < columnA.length; i++) {
                         for (let j = 1; j < columnA.length; j++) {
                             if (i !== j) {
-                                newWorksheet.addRow([columnA[i], columnA[j], categoryRank, 'ATAC2']);
+                                const row = [columnA[i], columnA[j], categoryRank];
+                                if (includeWertelisteneintragID) {
+                                    row.push('ATAC2');
+                                }
+                                newWorksheet.addRow(row);
                             }
                         }
                     }
