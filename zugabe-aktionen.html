@@ -10,13 +10,11 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Excel to XML Converter</h1>
+        <p>Dieses Tool erstellt eine Zugabe-Aktions-XML für alle Artikelnummern, die in Spalte A der hochgeladenen Excel-Datei enthalten sind.</p>
         <div class="mb-3">
             <input type="file" id="excelFile" class="form-control" accept=".xlsx, .xls">
         </div>
         <button id="generateBtn" class="btn btn-primary">Generate and Download XML</button>
-        <div class="mt-4">
-            <textarea id="xmlOutput" class="form-control" rows="10" readonly></textarea>
-        </div>
     </div>
 
     <script>
@@ -203,9 +201,6 @@ major="6" minor="6" family="enfinity" branch="enterprise" build="24.7.1.1-RC2">`
                     });
 
                     xmlContent += '\n</enfinity>';
-                    document.getElementById('xmlOutput').value = xmlContent;
-
-                    // Create and trigger download
                     const blob = new Blob([xmlContent], { type: 'application/xml' });
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
