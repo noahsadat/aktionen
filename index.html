@@ -50,8 +50,17 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        document.getElementById('aktionsgenerator').innerHTML = xhr.responseText;
-                        console.log('Content loaded successfully');
+                        var content = xhr.responseText;
+                        var aktionsgenDiv = document.getElementById('aktionsgenerator');
+                        aktionsgenDiv.innerHTML = content;
+                        
+                        // Execute any scripts in the loaded content
+                        var scripts = aktionsgenDiv.getElementsByTagName('script');
+                        for (var i = 0; i < scripts.length; i++) {
+                            eval(scripts[i].innerHTML);
+                        }
+                        
+                        console.log('Content loaded and scripts executed');
                     } else {
                         console.error('Error loading content. Status:', xhr.status);
                         document.getElementById('aktionsgenerator').innerHTML = '<p>Error loading content. Please try again later.</p>';
