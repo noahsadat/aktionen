@@ -11,7 +11,7 @@
     .header-tab {
         background-color: var(--bs-dark);
         border-radius: 12px;
-        padding: 3px;
+        padding: 20px;
         display: inline-flex;
     }
     .header-tab a {
@@ -38,9 +38,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <div class="header-tab">
-                    <a class="nav-link" href="#" onclick="loadPage('aktionsgenerator.html'); return false;">Aktionsgenerator</a>
-                    <a class="nav-link" href="#" onclick="loadPage('zugabe-aktionen.html'); return false;">Zugabe-Aktionsgenerator</a>
-                    <a class="nav-link" href="#" onclick="loadPage('cross-selling.html'); return false;">Cross-seller-aktionen</a>
+                    <a class="nav-link" href="#" data-page="aktionsgenerator.html">Aktionsgenerator</a>
+                    <a class="nav-link" href="#" data-page="zugabe-aktionen.html">Zugabe-Aktionsgenerator</a>
+                    <a class="nav-link" href="#" data-page="cross-selling.html">Cross-selling-aktionen</a>
                 </div>
             </div>
         </div>
@@ -59,12 +59,15 @@
             iframe.src = url;
         }
 
-        // Load index.html by default
+        // Load aktionsgenerator.html by default
         loadPage('aktionsgenerator.html');
 
-        // Add active class to the current/clicked button
+        // Add click event listeners to all nav links
         document.querySelectorAll('.header-tab a').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.getAttribute('data-page');
+                loadPage(page);
                 document.querySelectorAll('.header-tab a').forEach(el => el.classList.remove('active'));
                 this.classList.add('active');
             });
