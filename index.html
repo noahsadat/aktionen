@@ -7,26 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <title>Test Homepage</title>
     <style>
-        .iframe-container { height: calc(100vh - 60px); }
-        .header-tab {
-            background-color: #2a2a2a;
-            border-radius: 25px;
-            padding: 20px;
-            display: inline-flex;
-        }
-        .header-tab a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            transition: background-color 0.3s;
-        }
-        .header-tab a:hover, .header-tab a.active {
-            background-color: #3a3a3a;
-        }
-        .header-tab a.active {
-            background-color: #4a4a4a;
-        }
+        .iframe-container { height: calc(100vh - 20px); }
+    .header-tab {
+        background-color: var(--bs-dark);
+        border-radius: 12px;
+        padding: 3px;
+        display: inline-flex;
+    }
+    .header-tab a {
+        color: var(--bs-light);
+        text-decoration: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        transition: background-color 0.3s;
+        font-size: 0.8rem;
+    }
+    .header-tab a:hover, .header-tab a.active {
+        background-color: var(--bs-secondary);
+    }
+    .header-tab a.active {
+        background-color: var(--bs-primary);
+    }
     </style>
 </head>
 <body>
