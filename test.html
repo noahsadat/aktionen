@@ -15,28 +15,30 @@
 <body>
     <header>
         <nav>
-            <button onclick="showContent('index')">Home</button>
-            <button onclick="showContent('zugabe-aktionen')">Zugabe Aktionen</button>
-            <button onclick="showContent('cross-selling')">Cross Selling</button>
+            <button onclick="loadPage('index.html')">Home</button>
+            <button onclick="loadPage('zugabe-aktionen.html')">Zugabe Aktionen</button>
+            <button onclick="loadPage('cross-selling.html')">Cross Selling</button>
         </nav>
     </header>
     <div id="content">
-        <!-- Content will be shown here -->
+        <!-- Content will be loaded here -->
     </div>
 
     <script>
-        const contents = {
-            'index': '<h1>Welcome to the Home Page</h1><p>This is the main page content.</p>',
-            'zugabe-aktionen': '<h1>Zugabe Aktionen</h1><p>Content for Zugabe Aktionen goes here.</p>',
-            'cross-selling': '<h1>Cross Selling</h1><p>Information about cross-selling strategies.</p>'
-        };
-
-        function showContent(page) {
-            document.getElementById('content').innerHTML = contents[page] || '<p>Page not found.</p>';
+        function loadPage(url) {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('content').innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading page:', error);
+                    document.getElementById('content').innerHTML = '<p>Error loading page.</p>';
+                });
         }
 
-        // Show index content by default
-        showContent('index');
+        // Load index.html by default
+        loadPage('index.html');
     </script>
 </body>
 </html>
