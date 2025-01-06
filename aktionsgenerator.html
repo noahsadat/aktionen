@@ -128,11 +128,11 @@ const config = {
     apiKey: 'cde1269e-de07-4498-9bc7-c901ef5f9ea7:fx',
     languages: ['de', 'fr', 'nl', 'en', 'it'],
     defaultExclusionText: {
-        de: "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/aktionsbedingungen/&quot;&gt;Aktionsbedingungen.&lt;/a&gt;",
-        fr: "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/aktionsbedingungen/&quot;&gt;Conditions de promotion.&lt;/a&gt;",
-        nl: "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/aktionsbedingungen/&quot;&gt;Voorwaarden voor promotie.&lt;/a&gt;",
-        en: "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/aktionsbedingungen/&quot;&gt;Promotion conditions.&lt;/a&gt;",
-        it: "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/aktionsbedingungen/&quot;&gt;Condizioni di promozione.&lt;/a&gt;"
+        de: "Nur solange der Vorrat reicht. Zzgl. gesetzlicher Umsatzsteuer. Bitte beachten Sie unseren Mindestbestellwert von 100 € zzgl. gesetzl. Umsatzsteuer. Diese Aktion gilt nur für ausgewählte Artikel. Ausgenommen sind vertraglich verhandelte Preise.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/campaign#aktionsbedingungen&quot;&gt;Aktionsbedingungen.&lt;/a&gt;",
+        fr: "Dans la limite des stocks disponibles. Les prix ne comprennent pas la TVA. Veuillez tenir compte de notre valeur minimale de commande de 100 € plus la TVA légale. Cette promotion ne s'applique qu'aux articles sélectionnés. Les prix convenus contractuellement sont exclus.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/campaign#aktionsbedingungen&quot;&gt;Conditions de promotion.&lt;/a&gt;",
+        nl: "Alleen zolang de voorraad strekt. Prijzen exclusief btw. Houd rekening met onze minimale bestelwaarde van €100 plus btw. Deze actie geldt alleen voor geselecteerde artikelen. Contractueel overeengekomen prijzen zijn uitgesloten.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/campaign#aktionsbedingungen&quot;&gt;Voorwaarden voor promotie.&lt;/a&gt;",
+        en: "Only while stocks last. Plus statutory sales tax. Please note our minimum order value of €100 plus VAT. This promotion only applies to selected items. Contractually negotiated prices are excluded.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/campaign#aktionsbedingungen&quot;&gt;Promotion conditions.&lt;/a&gt;",
+        it: "Solo fino a esaurimento scorte. Più l'imposta di legge sulle vendite. Si prega di notare che il valore minimo dell'ordine è di 100 euro più IVA. Questa promozione si applica solo agli articoli selezionati. Sono esclusi i prezzi negoziati contrattualmente.&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;/page/campaign#aktionsbedingungen&quot;&gt;Condizioni di promozione.&lt;/a&gt;"
     }
 };
 
@@ -472,6 +472,9 @@ ${type === 'TECHNOLIT' ?
 <category-exclusion id="8938" domain="TECHNOLIT-8286"/>
 <category-exclusion id="9232" domain="TECHNOLIT-8286"/>` :
 `<category-inclusion id="6762" domain="IWETEC-6762"/>
+<category-exclusion id="14278" domain="IWETEC-6762"/>
+<category-exclusion id="14280" domain="IWETEC-6762"/>
+<category-exclusion id="7370" domain="IWETEC-6762"/>
 <category-exclusion id="7386" domain="IWETEC-6762"/>
 <category-exclusion id="7387" domain="IWETEC-6762"/>
 <category-exclusion id="7389" domain="IWETEC-6762"/>
@@ -593,14 +596,34 @@ function getSubConditions(type) {
 </custom-attributes>
 </sub-conditions>
 <sub-conditions>
-<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
 <position>2</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
 <name></name>
 <type-code>0</type-code>
 <custom-attributes>
 <custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
-<custom-attribute name="AttributeValue" ns2:dt="string">DeWALT</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">EGLO Leuchten Handels GmbH</custom-attribute>
 <custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">KERBL</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
 </custom-attributes>
 </sub-conditions>
 <sub-conditions>
@@ -626,7 +649,7 @@ function getSubConditions(type) {
 <type-code>0</type-code>
 <custom-attributes>
 <custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
-<custom-attribute name="AttributeValue" ns2:dt="string">KERBL</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">NILFISK</custom-attribute>
 <custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
 </custom-attributes>
 </sub-conditions>
@@ -641,7 +664,7 @@ function getSubConditions(type) {
 <type-code>0</type-code>
 <custom-attributes>
 <custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
-<custom-attribute name="AttributeValue" ns2:dt="string">NILFISK</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Luda.Farm</custom-attribute>
 <custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
 </custom-attributes>
 </sub-conditions>`;
