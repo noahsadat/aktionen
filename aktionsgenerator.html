@@ -479,6 +479,7 @@ ${type === 'TECHNOLIT' ?
 <category-exclusion id="7387" domain="IWETEC-6762"/>
 <category-exclusion id="7389" domain="IWETEC-6762"/>
 <category-exclusion id="7775" domain="IWETEC-6762"/>
+<category-exclusion id="13336" domain="IWETEC-6762"/>
 <category-exclusion id="8883" domain="IWETEC-6762"/>`}
 </inclusions-exclusions>
 </sub-conditions>
@@ -553,8 +554,39 @@ function getSubConditions(type) {
 </custom-attributes>
 </sub-conditions>
 <sub-conditions>
-<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<condition-descriptor-id>OperatorAndCondition</condition-descriptor-id>
 <position>3</position>
+<name></name>
+<type-code>5</type-code>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>0</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Rodcraft</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>1</position>
+<name></name>
+<type-code>0</type-code>
+<custom-attributes>
+<custom-attribute name="AttributeName" ns2:dt="string">manufacturerName</custom-attribute>
+<custom-attribute name="AttributeValue" ns2:dt="string">Nilfisk A/S</custom-attribute>
+<custom-attribute name="CompareOperator" ns2:dt="boolean">false</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<custom-attributes>
+<custom-attribute name="ConditionType" ns2:dt="string">Item</custom-attribute>
+</custom-attributes>
+</sub-conditions>
+<sub-conditions>
+<condition-descriptor-id>ItemProductAttributeCondition</condition-descriptor-id>
+<position>4</position>
 <name></name>
 <type-code>0</type-code>
 <custom-attributes>
