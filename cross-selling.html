@@ -6,12 +6,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
     <title>Cross-Selling Generator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <!-- Try alternate CDN for ExcelJS -->
+    <script src="https://unpkg.com/exceljs/dist/exceljs.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1 class="mb-4">Cross-Selling Generator</h1>
         <p>Tool zur Generierung einer Cross-Selling-Excel-Datei mit der Möglichkeit, den Kategorie-Rang der Cross-Seller zu hinterlegen.</p>
+        
         <div class="mb-3">
             <label for="excelFile" class="form-label">Excel-Datei hochladen</label>
             <input class="form-control" type="file" id="excelFile" accept=".xlsx, .xls">
@@ -25,61 +27,152 @@
             <label class="form-check-label" for="includeWertelisteneintragID">Wertelisteneintrag-ID einschließen</label>
         </div>
         <button id="processButton" class="btn btn-primary">Generieren und herunterladen</button>
+        
+        <!-- Add status display for better feedback -->
+        <div id="statusMessage" class="mt-3 alert alert-info d-none"></div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script>
+        // Helper function to show status messages
+        function showStatus(message, type = 'info') {
+            const statusEl = document.getElementById('statusMessage');
+            statusEl.textContent = message;
+            statusEl.className = `mt-3 alert alert-${type}`;
+            statusEl.classList.remove('d-none');
+        }
+        
+        // Delay the check slightly to ensure the library has time to load
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                // Check if ExcelJS is loaded properly
+                if (typeof ExcelJS === 'undefined') {
+                    showStatus('ExcelJS library could not be loaded. Attempting to load it again...', 'warning');
+                    
+                    // Try to load the library dynamically as a fallback
+                    const script = document.createElement('script');
+                    script.src = 'https://cdn.jsdelivr.net/npm/exceljs/dist/exceljs.min.js';
+                    script.onload = function() {
+                        showStatus('ExcelJS library loaded successfully!', 'success');
+                    };
+                    script.onerror = function() {
+                        showStatus('Failed to load ExcelJS. Please download local copy from https://unpkg.com/exceljs/dist/exceljs.min.js', 'danger');
+                    };
+                    document.head.appendChild(script);
+                } else {
+                    showStatus('ExcelJS library loaded successfully!', 'success');
+                    setTimeout(() => {
+                        document.getElementById('statusMessage').classList.add('d-none');
+                    }, 3000);
+                }
+            }, 1000);
+        });
+        
         document.getElementById('processButton').addEventListener('click', async function() {
-            const fileInput = document.getElementById('excelFile');
-            const categoryRank = document.getElementById('categoryRank').value;
-            const includeWertelisteneintragID = document.getElementById('includeWertelisteneintragID').checked;
-            const file = fileInput.files[0];
-            
-            if (file) {
+            try {
+                // Verify ExcelJS is available before proceeding
+                if (typeof ExcelJS === 'undefined') {
+                    showStatus('ExcelJS library is not available. Please refresh the page and try again.', 'danger');
+                    return;
+                }
+                
+                const fileInput = document.getElementById('excelFile');
+                const categoryRank = document.getElementById('categoryRank').value;
+                const includeWertelisteneintragID = document.getElementById('includeWertelisteneintragID').checked;
+                const file = fileInput.files[0];
+                
+                if (!file) {
+                    showStatus('Bitte wählen Sie zuerst eine Excel-Datei aus.', 'warning');
+                    return;
+                }
+                
+                showStatus('Verarbeite Excel-Datei...');
+                
                 const reader = new FileReader();
                 reader.onload = async function(e) {
-                    const data = new Uint8Array(e.target.result);
-                    const workbook = new ExcelJS.Workbook();
-                    await workbook.xlsx.load(data);
-                    
-                    const worksheet = workbook.getWorksheet(1);
-                    const columnA = worksheet.getColumn('A').values.filter(Boolean);
-                    
-                    const newWorkbook = new ExcelJS.Workbook();
-                    const newWorksheet = newWorkbook.addWorksheet('Cross-Selling');
-                    
-                    const headers = includeWertelisteneintragID 
-                        ? ['Artikel', 'Cross-Sell-Artikel', 'Kategorie-Rang', 'Wertelisteneintrag-ID']
-                        : ['Artikel', 'Cross-Sell-Artikel', 'Kategorie-Rang'];
-                    newWorksheet.addRow(headers);
-                    
-                    for (let i = 1; i < columnA.length; i++) {
-                        for (let j = 1; j < columnA.length; j++) {
-                            if (i !== j) {
-                                const row = [columnA[i], columnA[j], categoryRank];
-                                if (includeWertelisteneintragID) {
-                                    row.push('ATAC2');
+                    try {
+                        const data = new Uint8Array(e.target.result);
+                        const workbook = new ExcelJS.Workbook();
+                        await workbook.xlsx.load(data);
+                        
+                        // Get the first worksheet or let user choose if multiple worksheets
+                        let worksheet;
+                        
+                        if (workbook.worksheets.length === 0) {
+                            throw new Error('Die Excel-Datei enthält keine Tabellenblätter.');
+                        } else if (workbook.worksheets.length === 1) {
+                            worksheet = workbook.worksheets[0]; // Get first worksheet directly
+                        } else {
+                            // If multiple worksheets, get the first one and log a message
+                            worksheet = workbook.worksheets[0];
+                            console.log(`Multiple worksheets found. Using the first one: ${worksheet.name}`);
+                            showStatus(`Mehrere Tabellenblätter gefunden. Verwende "${worksheet.name}"`, 'info');
+                        }
+                        
+                        // Get column A values more reliably
+                        const columnA = [];
+                        worksheet.eachRow((row, rowNumber) => {
+                            const cellValue = row.getCell(1).value;
+                            if (cellValue && rowNumber > 1) { // Skip header row
+                                columnA.push(cellValue);
+                            }
+                        });
+                        
+                        if (columnA.length === 0) {
+                            throw new Error('Keine Daten in Spalte A gefunden. Bitte stellen Sie sicher, dass die Artikelnummern in der ersten Spalte stehen.');
+                        }
+                        
+                        showStatus(`${columnA.length} Artikel gefunden. Erstelle Cross-Selling-Datei...`);
+                        
+                        const newWorkbook = new ExcelJS.Workbook();
+                        const newWorksheet = newWorkbook.addWorksheet('Cross-Selling');
+                        
+                        const headers = includeWertelisteneintragID 
+                            ? ['Artikel', 'Cross-Sell-Artikel', 'Kategorie-Rang', 'Wertelisteneintrag-ID']
+                            : ['Artikel', 'Cross-Sell-Artikel', 'Kategorie-Rang'];
+                        newWorksheet.addRow(headers);
+                        
+                        for (let i = 0; i < columnA.length; i++) {
+                            for (let j = 0; j < columnA.length; j++) {
+                                if (i !== j) {
+                                    const row = [columnA[i], columnA[j], categoryRank];
+                                    if (includeWertelisteneintragID) {
+                                        row.push('ATAC2');
+                                    }
+                                    newWorksheet.addRow(row);
                                 }
-                                newWorksheet.addRow(row);
                             }
                         }
+                        
+                        const buffer = await newWorkbook.xlsx.writeBuffer();
+                        const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+                        const url = URL.createObjectURL(blob);
+                        
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'Artikel-Zubehoer.xlsx';
+                        a.click();
+                        URL.revokeObjectURL(url);
+                        
+                        showStatus('Cross-Selling-Datei erfolgreich erstellt und heruntergeladen!', 'success');
+                    } catch (error) {
+                        showStatus(`Fehler bei der Verarbeitung: ${error.message}`, 'danger');
+                        console.error('Error processing Excel file:', error);
                     }
-                    
-                    const buffer = await newWorkbook.xlsx.writeBuffer();
-                    const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-                    const url = URL.createObjectURL(blob);
-                    
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'Artikel-Zubehoer.xlsx';
-                    a.click();
-                    URL.revokeObjectURL(url);
                 };
+                
+                reader.onerror = function(e) {
+                    showStatus('Fehler beim Lesen der Datei. Bitte versuchen Sie es erneut.', 'danger');
+                    console.error('File reading error:', e);
+                };
+                
                 reader.readAsArrayBuffer(file);
-            } else {
-                alert('Please select an Excel file first.');
+                
+            } catch (error) {
+                showStatus(`Unerwarteter Fehler: ${error.message}`, 'danger');
+                console.error('Unexpected error:', error);
             }
         });
     </script>
